@@ -1,7 +1,24 @@
-import { FASTElement, customElement, attr } from '@microsoft/fast-element';
+import { FASTElement, customElement, attr, html, css } from '@microsoft/fast-element';
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 import { CallClient, CallAgent, DeviceManager } from '@azure/communication-calling';
-@customElement('acs-calling-provider')
+
+const template = html<ACSCallingProvider>`
+<div>
+  <div class="body">
+  <slot></slot>
+  </div>
+</div>
+`;
+
+const styles = css`
+  .body {
+    background: #0080FF;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+@customElement({name: 'acs-calling-provider', template, styles})
 export class ACSCallingProvider extends FASTElement {
     constructor() {
         super();
@@ -19,6 +36,8 @@ export class ACSCallingProvider extends FASTElement {
   //   console.log('updated called')
   //   this.shadowRoot!.innerHTML = `${this.communicationUserId} ${this.accessToken}`;
   // }
+
+
 
   async connectedCallback() {
     super.connectedCallback();
