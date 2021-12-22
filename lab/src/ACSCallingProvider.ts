@@ -1,6 +1,11 @@
 import { FASTElement, customElement, attr, html, css } from '@microsoft/fast-element';
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
-import { CallClient, CallAgent, DeviceManager } from '@azure/communication-calling';
+import { CallClient, DeviceManager } from '@azure/communication-calling';
+import { DI, Registration, Container } from '@microsoft/fast-foundation';
+
+export const ACSUnresolvedDeviceManager = DI.createInterface<Promise<DeviceManager>>();
+
+export const ACSDeviceManager = DI.createInterface<Promise<DeviceManager> | DeviceManager>();
 
 const template = html<ACSCallingProvider>`
 <div>
@@ -29,35 +34,36 @@ export class ACSCallingProvider extends FASTElement {
 
   private _tokenCredential: AzureCommunicationTokenCredential;
   private _callClient: CallClient;
-  private _callAgent: CallAgent;
-  private _deviceManager: DeviceManager;
-
-  // update() {
-  //   console.log('updated called')
-  //   this.shadowRoot!.innerHTML = `${this.communicationUserId} ${this.accessToken}`;
-  // }
-
-
+  private _unresolvedDeviceManager:  Promise<DeviceManager>;
+  private _deviceManager:  DeviceManager;
+  private _container: Container;
 
   async connectedCallback() {
     super.connectedCallback();
     console.log('acs-calling-provider is now connected to the DOM');
-    // this.update();
     this._tokenCredential = new AzureCommunicationTokenCredential(this.accessToken);
     this._callClient = new CallClient();
-    this._callAgent = await this._callClient.createCallAgent(this._tokenCredential);
+
+    this._container = DI.getOrCreateDOMContainer();
+
+    this._unresolvedDeviceManager = this._callClient.getDeviceManager();
+
+    this._container.register(Registration.callback(ACSUnresolvedDeviceManager, () => this._unresolvedDeviceManager));
+
+    console.log('registered promises');
+
     this._deviceManager = await this._callClient.getDeviceManager();
 
-    if (this._callAgent) {
-      console.log('call agent initialized')
-    }
+    this._container.register(Registration.callback(ACSDeviceManager, () => this._deviceManager));
+
+    console.log('registered resolved objects');
+
+    this._container.register(Registration.instance(ACSDeviceManager, () => this._deviceManager));
+
+    console.log('initialized device manager '+this._deviceManager);
   }
 
   async disconnectedCallback() {
     super.disconnectedCallback();
-    if (this._callAgent) {
-      console.log('call agent existed and I am disposing it now');
-      await this._callAgent.dispose();
-    }
   }
 }
