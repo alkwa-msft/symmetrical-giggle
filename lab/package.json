@@ -78,6 +78,7 @@
   "dependencies": {
     "@azure/communication-identity": "^1.0.0",
     "@azure/communication-react": "^1.0.0",
+    "@microsoft/fast-components": "^2.16.9",
     "@microsoft/fast-element": "^1.6.2",
     "@microsoft/fast-foundation": "^2.27.3"
   }

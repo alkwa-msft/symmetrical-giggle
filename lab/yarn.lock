@@ -713,6 +713,23 @@
     "@fluentui/set-version" "^8.1.5"
     tslib "^2.1.0"
 
+"@microsoft/fast-colors@^5.1.4":
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/@microsoft/fast-colors/-/fast-colors-5.1.4.tgz#9268dd9010d5c11161697196aaa86958191cbee4"
+  integrity sha512-+0ZVfZ04627buD8ZK8k84FpZom85vU0qUoRtcnFQm6AG5MIWcRE8m5ybJlMIjv2LIJcI/q7tjl+ruKBpWaqwJQ==
+
+"@microsoft/fast-components@^2.16.9":
+  version "2.16.9"
+  resolved "https://registry.yarnpkg.com/@microsoft/fast-components/-/fast-components-2.16.9.tgz#62d9fc682c0d2911e4b2aafc36fa3148877de854"
+  integrity sha512-cFwmgM/FQtOhDDBb9idDw7BPBlFgzw0VINwwzRgBW4zswC6UnhT2LRk1qlHitdY1xZEHBa7kgiqD6EMYreJokQ==
+  dependencies:
+    "@microsoft/fast-colors" "^5.1.4"
+    "@microsoft/fast-element" "^1.6.2"
+    "@microsoft/fast-foundation" "^2.27.3"
+    "@microsoft/fast-web-utilities" "^5.0.2"
+    tslib "^1.13.0"
+    vscode-html-languageservice "^4.0.3"
+
 "@microsoft/fast-element@^1.6.2":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@microsoft/fast-element/-/fast-element-1.6.2.tgz#414abc9f49fde85e12002e01025c5cc3dddc16ac"
@@ -6866,6 +6883,36 @@ void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
+
+vscode-html-languageservice@^4.0.3:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/vscode-html-languageservice/-/vscode-html-languageservice-4.2.1.tgz#b95077cffd19bf187e53c7bf79e3e0dd7edbc7cf"
+  integrity sha512-PgaToZVXJ44nFWEBuSINdDgVV6EnpC3MnXBsysR3O5TKcAfywbYeRGRy+Y4dVR7YeUgDvtb+JkJoSkaYC0mxXQ==
+  dependencies:
+    vscode-languageserver-textdocument "^1.0.1"
+    vscode-languageserver-types "^3.16.0"
+    vscode-nls "^5.0.0"
+    vscode-uri "^3.0.2"
+
+vscode-languageserver-textdocument@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.3.tgz#879f2649bfa5a6e07bc8b392c23ede2dfbf43eff"
+  integrity sha512-ynEGytvgTb6HVSUwPJIAZgiHQmPCx8bZ8w5um5Lz+q5DjP0Zj8wTFhQpyg8xaMvefDytw2+HH5yzqS+FhsR28A==
+
+vscode-languageserver-types@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-types/-/vscode-languageserver-types-3.16.0.tgz#ecf393fc121ec6974b2da3efb3155644c514e247"
+  integrity sha512-k8luDIWJWyenLc5ToFQQMaSrqCHiLwyKPHKPQZ5zz21vM+vIVUSvsRpcbiECH4WR88K2XZqc4ScRcZ7nk/jbeA==
+
+vscode-nls@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vscode-nls/-/vscode-nls-5.0.0.tgz#99f0da0bd9ea7cda44e565a74c54b1f2bc257840"
+  integrity sha512-u0Lw+IYlgbEJFF6/qAqG2d1jQmJl0eyAGJHoAJqr2HT4M2BNuQYSEiSE75f52pXHSJm8AlTjnLLbBFPrdz2hpA==
+
+vscode-uri@^3.0.2:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.0.3.tgz#a95c1ce2e6f41b7549f86279d19f47951e4f4d84"
+  integrity sha512-EcswR2S8bpR7fD0YPeS7r2xXExrScVMxg4MedACaWHEtx9ftCF/qHG1xGkolzTPcEmjTavCQgbVzHUIdTMzFGA==
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
